@@ -22,7 +22,7 @@ class CalculatorController extends Controller
      */
     public function indexAction()
     {
-        return $this->render(':calculator:index.html.twig');
+        return $this->render(':calculator:index.html.twig.twig');
     }
 
     /**

@@ -1,0 +1,20 @@
+{% extends '::base.htmml.twig' %}
+
+{% block body %}
+    <table>
+        {% for user in users %}
+            <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
+                <td>{{ user.createAt | date("d/m/Y H:i:s") }}</td>
+                <td>{{ user.updateAt | date("d/m/Y H:i:s") }}</td>
+                <td><a href="{{ path('app_user_update', {'id': user.id}) }}">Update</a></td>
+                <td><a href="{{ path('app_user_remove', {'id': user.id}) }}">Remove</a></td>
+            </tr>
+         {% endfor %}
+    </table>
+        <div style="margint-top: 10px">
+            <a href="{{ path('app_user_insert') }}">Nuevo usuario</a>
+        </div>
+{% endblock %}

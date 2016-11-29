@@ -1,3 +1,14 @@
 app:
     resource: "@AppBundle/Controller/CalculatorController.php"
     type:     annotation
+
+user:
+  resource: "@AppBundle/Controller/UserController.php"
+  type: annotation
+  prefix: /user
+
+Product:
+  resource: "@AppBundle/Controller/ProductController.php"
+  type: annotation
+  prefix: /Product
+
