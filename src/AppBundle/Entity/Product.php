@@ -3,12 +3,17 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Product
  *
  * @ORM\Table(name="product")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ProductRepository")
+ * @ORM\HasLifecycleCallbacks()
+ * @UniqueEntity(fields={"email"}, message="This email is taken")
+ * @UniqueEntity(fields={"username"}, message="This username is taken")
  */
 class Product
 {
@@ -22,23 +27,27 @@ class Product
     private $id;
 
     /**
+     *
      * @var string
      *
+     *
      * @ORM\Column(name="nombre", type="string", length=255, unique=true)
+     *
      */
     private $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="descripticion", type="string", length=255)
+     *
+     * @ORM\Column(name="descripcion", type="string", length=255)
      */
-    private $descripticion;
+    private $descripcion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="precio", type="decimal", precision=6, scale=2)
+     * @ORM\Column(name="precio", type="decimal", precision=7, scale=2)
      */
     private $precio;
 
@@ -62,6 +71,13 @@ class Product
         $this->updateAt = $this->createAT;
     }
 
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * Get id
@@ -98,27 +114,27 @@ class Product
     }
 
     /**
-     * Set descripticion
+     * Set descripicion
      *
-     * @param string $descripticion
+     * @param string $descripicion
      *
      * @return Product
      */
-    public function setDescripticion($descripticion)
+    public function setDescripcion($descripcion)
     {
-        $this->descripticion = $descripticion;
+        $this->descripcion = $descripcion;
 
         return $this;
     }
 
     /**
-     * Get descripticion
+     * Get descripcion
      *
      * @return string
      */
-    public function getDescripticion()
+    public function getDescripcion()
     {
-        return $this->descripticion;
+        return $this->descripcion;
     }
 
     /**
@@ -153,11 +169,11 @@ class Product
      * @return Product
      */
     public function setCreateAT($createAT)
-    {
-        $this->createAT = $createAT;
+{
+    $this->createAT = $createAT;
 
-        return $this;
-    }
+    return $this;
+}
 
     /**
      * Get createAT

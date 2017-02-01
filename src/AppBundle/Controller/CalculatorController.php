@@ -22,7 +22,7 @@ class CalculatorController extends Controller
      */
     public function indexAction()
     {
-        return $this->render(':calculator:index.html.twig.twig');
+        return $this->render(':calculator:index.html.twig');
     }
 
     /**
@@ -39,7 +39,7 @@ class CalculatorController extends Controller
      */
     public function sumAction()
     {
-        return $this->render(':calculator:form.html.twig',
+        return $this->render(':calculator:form.html.twig.twig',
             [
                 'action' => 'app_calculator_doSum'
             ]

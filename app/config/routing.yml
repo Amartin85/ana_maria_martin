@@ -12,3 +12,8 @@ Product:
   type: annotation
   prefix: /Product
 
+abcd:
+  resource: "@AppBundle/Controller/abcdController.php"
+  type: annotation
+  prefix: /abcd
+

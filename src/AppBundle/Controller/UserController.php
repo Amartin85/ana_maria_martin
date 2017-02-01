@@ -9,7 +9,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\user;
-use AppBundle\Repository\userRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,14 +29,14 @@ class UserController extends Controller
     public function indexAction(){
         $m = $this->getDoctrine()->getManager();
 
-        $usuario1 = new user();
+       /* $usuario1 = new user();
         $usuario1
             ->setEmail("usuario1@usuario1.com")
             ->setPassword("1111")
             ->setNombre("pepito");
         $m->persist($usuario1);
 
-       /* $usuario2 = new user();
+       $usuario2 = new user();
         $usuario2
             ->setEmail("usuario2@usuairo.com")
             ->setPassword("2222")
@@ -53,7 +52,9 @@ class UserController extends Controller
 
         $m->flush();
 
-        //$repositoy= $m->getRepositoy('AppBundle:user');
+
+
+        $repositoy= $m->getRepository('AppBundle:user');
 
         /**
          * @var user $user
@@ -65,8 +66,8 @@ class UserController extends Controller
         $users = $repositoy->findAll();
 
         return $this->render(':user:index.html.twig',
-            ['
-                users'=>$users,
+            [
+                'users'=>$users,
             ]
             );
 
@@ -107,7 +108,7 @@ class UserController extends Controller
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
 
-    public function doUpdateActyion(Request $request){
+    public function doUpdateAction(Request $request){
         $m = $this->getDoctrine()->getManager();
         $repository = $m->getRepository('AppBundle:user');
 
@@ -151,9 +152,9 @@ class UserController extends Controller
     public function doInsertAction(Request $request){
         $user = new user();
 
-        $user->setEmail($request->$request->get('email'));
-        $user->setPassword($request->$request->get('password'));
-        $user->setNombre($request->$request->get('nombre'));
+        $user->setEmail($request->request->get('email'));
+        $user->setPassword($request->request->get('password'));
+        $user->setNombre($request->request->get('nombre'));
 
         $m = $this->getDoctrine()->getManager();
         $m->persist($user);

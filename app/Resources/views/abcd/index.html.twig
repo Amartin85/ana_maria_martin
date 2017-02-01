@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <table>
+        {% for abcd in abcd %}
+            <tr>
+                <td>{{ abcd.id }}</td>
+                <td>{{ abcd.aaaa }}</td>
+                <td>{{ abcd.bbbb }}</td>
+                <td>{{ abcd.cccc }}</td>
+                <td>{{ abcd.createAt | date("d/m/Y H:i:s") }}</td>
+                <td>{{ abcd.updateAt | date("d/m/Y H:i:s") }}</td>
+                <td><a href="{{ path('app_abcd_update', {'id': abcd.id}) }}">Actualizar</a></td>
+                <td><a href="{{ path('app_abcd_remove', {'id': abcd.id}) }}">Eliminar</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div style="margint-top: 100px">
+        <a href="{{ path('app_abcd_insert') }}">Crear</a>
+    </div>
+{% endblock %}

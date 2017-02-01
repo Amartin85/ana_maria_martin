@@ -1,0 +1,12 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <div>
+        <form method="post" action="{{ path('app_Product_doInsert')}}">
+            Nombre <input type="nombre" name="nombre"><br>
+            Descripcion <input type="descripcion" name="descripcion"><br>
+            Precio <input type="precio" name="precio"><br>
+            <input type="submit" value="insert">
+        </form>
+    </div>
+{% endblock %}

@@ -3,17 +3,16 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints\DateTime;
-use Symfony\Component\Validator\Constraints As Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * user
+ * abcd
  *
- * @ORM\Table(name="user")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\userRepository")
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\Table(name="abcd")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\abcdRepository")
  */
-class user
+class abcd
 {
     /**
      * @var int
@@ -27,35 +26,35 @@ class user
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="aaaa", type="string", length=255)
      */
-    private $email;
+    private $aaaa;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="bbbb", type="integer")
+     */
+    private $bbbb;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=255)
+     * @ORM\Column(name="cccc", type="string", length=255)
      */
-    private $nombre;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=255)
-     */
-    private $password;
+    private $cccc;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="create_At", type="datetime")
+     * @ORM\Column(name="createAt", type="datetime")
      */
     private $createAt;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="update_At", type="datetime")
+     * @ORM\Column(name="updateAt", type="datetime")
      */
     private $updateAt;
 
@@ -64,6 +63,8 @@ class user
         $this->createAt = new \DateTime();
         $this->updateAt = $this->createAt;
     }
+
+
 
     /**
      * Get id
@@ -76,75 +77,75 @@ class user
     }
 
     /**
-     * Set email
+     * Set aaaa
      *
-     * @param string $email
+     * @param string $aaaa
      *
-     * @return user
+     * @return abcd
      */
-    public function setEmail($email)
+    public function setAaaa($aaaa)
     {
-        $this->email = $email;
+        $this->aaaa = $aaaa;
 
         return $this;
     }
 
     /**
-     * Get email
+     * Get aaaa
      *
      * @return string
      */
-    public function getEmail()
+    public function getAaaa()
     {
-        return $this->email;
+        return $this->aaaa;
     }
 
     /**
-     * Set nombre
+     * Set bbbb
      *
-     * @param string $nombre
+     * @param integer $bbbb
      *
-     * @return user
+     * @return abcd
      */
-    public function setNombre($nombre)
+    public function setBbbb($bbbb)
     {
-        $this->nombre = $nombre;
+        $this->bbbb = $bbbb;
 
         return $this;
     }
 
     /**
-     * Get nombre
+     * Get bbbb
      *
-     * @return string
+     * @return int
      */
-    public function getNombre()
+    public function getBbbb()
     {
-        return $this->nombre;
+        return $this->bbbb;
     }
 
     /**
-     * Set password
+     * Set cccc
      *
-     * @param string $password
+     * @param string $cccc
      *
-     * @return user
+     * @return abcd
      */
-    public function setPassword($password)
+    public function setCccc($cccc)
     {
-        $this->password = $password;
+        $this->cccc = $cccc;
 
         return $this;
     }
 
     /**
-     * Get password
+     * Get cccc
      *
      * @return string
      */
-    public function getPassword()
+    public function getCccc()
     {
-        return $this->password;
+        return $this->cccc;
     }
 
     /**
@@ -152,7 +153,7 @@ class user
      *
      * @param \DateTime $createAt
      *
-     * @return user
+     * @return abcd
      */
     public function setCreateAt($createAt)
     {
@@ -176,11 +177,11 @@ class user
      *
      * @param \DateTime $updateAt
      *
-     * @return user
+     * @return abcd
      */
-    public function setUpdateAt()
+    public function setUpdateAt($updateAt)
     {
-        $this->updateAt = new DateTime();
+        $this->updateAt = $updateAt;
 
         return $this;
     }
@@ -194,4 +195,6 @@ class user
     {
         return $this->updateAt;
     }
+
 }
+

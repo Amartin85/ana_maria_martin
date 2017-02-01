@@ -1,0 +1,21 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+    <table>
+        {% for Product in Products %}
+            <tr>
+                <td>{{ Product.id }}</td>
+                <td>{{ Product.nombre }}</td>
+                <td>{{ Product.descripcion}}</td>
+                <td>{{ Product.precio }}</td>
+                <td>{{ Product.createAt | date("d/m/Y H:i:s") }}</td>
+                <td>{{ Product.updateAt | date("d/m/Y H:i:s") }}</td>
+                <td><a href="{{ path('app_Product_update', {'id': Product.id}) }}">Update</a></td>
+                <td><a href="{{ path('app_Product_remove', {'id': Product.id}) }}">Remove</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <div style="margint-top: 10px">
+        <a href="{{ path('app_Product_insert') }}">Nuevo producto</a>
+    </div>
+{% endblock %}
